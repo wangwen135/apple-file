@@ -16,11 +16,22 @@ import com.appleframework.file.provider.fdfs.FdfsProvider;
  */
 public class FSProviderSpringFacade extends AbstractFSProviderSpringFacade implements InitializingBean, DisposableBean {
 
+	private int maxThreads = 50;
+	private long connectTimeout = 3000;
+	
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		Validate.isTrue(servers != null && servers.matches("^.+[:]\\d{1,5}\\s*$"), "[servers] is not valid");
 		String[] serversArray = servers.split(",|;");
 		fsProvider = new FdfsProvider(urlprefix, groupName, serversArray, connectTimeout, maxThreads);
+	}
+
+	public void setMaxThreads(int maxThreads) {
+		this.maxThreads = maxThreads;
+	}
+
+	public void setConnectTimeout(long connectTimeout) {
+		this.connectTimeout = connectTimeout;
 	}
 
 }

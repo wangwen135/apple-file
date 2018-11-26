@@ -26,8 +26,7 @@ public abstract class AbstractFSProviderSpringFacade {
 	protected String secretKey;
 	protected String urlprefix;
 	protected String servers;
-	protected long connectTimeout = 3000;
-	protected int maxThreads = 50;
+	
 	protected boolean privated;
 
 	public void setEndpoint(String endpoint) {
@@ -77,10 +76,6 @@ public abstract class AbstractFSProviderSpringFacade {
 
 	public Map<String, Object> createUploadToken(UploadTokenParam param) {
 		return fsProvider.createUploadToken(param);
-	}
-
-	public void setConnectTimeout(long connectTimeout) {
-		this.connectTimeout = connectTimeout;
 	}
 	
 }

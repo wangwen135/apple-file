@@ -80,10 +80,8 @@ public class UploadObject {
 			String fileExtension = MimeTypeFileExtensionConvert.getFileExtension(mimeType);
 			if(fileExtension != null)fileName = fileName + fileExtension;
 		}
-		
 		return fileName;
 	}
-
 
 	public String getUrl() {
 		return url;
@@ -121,8 +119,7 @@ public class UploadObject {
 	public String getMimeType(){
 		return mimeType;
 	}
-
-
+	
 	public String getCatalog() {
 		return catalog;
 	}

@@ -10,9 +10,6 @@ package com.appleframework.file.sdk.fdfs;
  */
 public class FastdfsException extends RuntimeException {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = -8274679139300220262L;
 
     public FastdfsException() {
