@@ -80,5 +80,14 @@ public class UploadResult {
 	public void setParameters(Map<String, String> parameters) {
 		this.parameters = parameters;
 	}
+	
+	public boolean isSuccessful() {
+		if(status == UPLOAD_SUCCSSS) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
