@@ -57,7 +57,7 @@ public class HttpProvider extends AbstractProvider {
 					.addFormDataPart(fileName, fileName, fileBody)
 					.build();
 
-			String url = this.urlprefix + "file/upload?systemSign=" + bucketName;
+			String url = this.urlprefix + "file/upload?groupName=" + bucketName;
 			Request request = new Request.Builder().url(url).post(requestBody).build();
 
 			Response response = client.newCall(request).execute();
