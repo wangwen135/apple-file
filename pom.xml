@@ -52,6 +52,7 @@
 		<module>apple-file-aliyun</module>
 		<module>apple-file-qiniu</module>
 		<module>apple-file-fdfs</module>
+		<module>apple-file-http</module>
 	</modules>
 
 	<build>

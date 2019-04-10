@@ -28,7 +28,6 @@ public abstract class AbstractProvider implements FSProvider {
 		}
 		return urlprefix + file;
 	}
-	
 
 	@Override
 	public String downloadAndSaveAs(String file, String localSaveDir) {

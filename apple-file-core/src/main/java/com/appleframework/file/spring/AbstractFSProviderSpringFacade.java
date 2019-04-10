@@ -65,7 +65,6 @@ public abstract class AbstractFSProviderSpringFacade {
 		return fsProvider.upload(new UploadObject(fileName, file));
 	}
 
-
 	public String upload(String fileName, InputStream in, String mimeType) {
 		return fsProvider.upload(new UploadObject(fileName, in, mimeType));
 	}
