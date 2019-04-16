@@ -4,7 +4,9 @@
 package com.appleframework.file;
 
 import java.io.Closeable;
+import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  * 上传接口
@@ -20,7 +22,7 @@ public interface FSProvider extends Closeable {
 	 * @param object
 	 * @return
 	 */
-	public String upload(UploadObject object);
+	public String upload(UploadObject object) throws InterruptedException, ExecutionException, IOException;
 	/**
 	 * 获取文件下载地址
 	 * @param file 文件（全路径或者fileKey）

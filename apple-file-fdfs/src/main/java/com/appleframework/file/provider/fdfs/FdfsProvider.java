@@ -3,6 +3,7 @@ package com.appleframework.file.provider.fdfs;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -45,9 +46,8 @@ public class FdfsProvider extends AbstractProvider {
 	}
 
 	@Override
-	public String upload(UploadObject object) {
+	public String upload(UploadObject object) throws InterruptedException, ExecutionException, IOException {
 		CompletableFuture<FileId> upload = null;
-		try {
 			if (object.getFile() != null) {
 				upload = client.upload(bucketName, object.getFile());
 			} else if (object.getBytes() != null) {
@@ -59,11 +59,8 @@ public class FdfsProvider extends AbstractProvider {
 
 			}
 			return getFullPath(upload.get().toString());
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
+	
 
-		return null;
 	}
 
 	@Override

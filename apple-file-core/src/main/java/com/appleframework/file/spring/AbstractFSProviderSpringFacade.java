@@ -4,8 +4,10 @@
 package com.appleframework.file.spring;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import com.appleframework.file.FSProvider;
 import com.appleframework.file.UploadObject;
@@ -61,11 +63,11 @@ public abstract class AbstractFSProviderSpringFacade {
 		fsProvider.close();
 	}
 
-	public String upload(String fileName, File file) {
+	public String upload(String fileName, File file)  throws InterruptedException, ExecutionException, IOException{
 		return fsProvider.upload(new UploadObject(fileName, file));
 	}
 
-	public String upload(String fileName, InputStream in, String mimeType) {
+	public String upload(String fileName, InputStream in, String mimeType)  throws InterruptedException, ExecutionException, IOException{
 		return fsProvider.upload(new UploadObject(fileName, in, mimeType));
 	}
 
